@@ -1,4 +1,3 @@
-#!/src/bin/env node 
 // postcss.config.js
 
 const path = require('path');
