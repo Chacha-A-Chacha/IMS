@@ -11,7 +11,7 @@ assets = Environment(app)
 tailwind_css_bundle = Bundle(
     "/static/src/main.css",      # Replace with the actual path to your Tailwind CSS file
     filters="postcss",           # Use PostCSS to process the CSS
-    output="gen/tailwind.css"    # Output file for the processed CSS
+    output="/static/css/output.css"    # Output file for the processed CSS
 )
 
 # Add the CSS bundle to the assets environment
