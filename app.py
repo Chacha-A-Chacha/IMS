@@ -7,6 +7,10 @@ from assets import tailwind_css_bundle
 app = Flask(__name__)
 assets = Environment(app)   # Initialize Flask-Assets environment
 
+app.config.from_object('config.Config')  # Load configuration from config.py
+
+db = SQLAlchemy(app)
+mail = Mail(app)
 
 # Register the Tailwind CSS bundle
 assets.register("main_css", tailwind_css_bundle)
