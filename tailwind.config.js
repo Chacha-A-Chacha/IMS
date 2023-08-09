@@ -17,14 +17,14 @@ module.exports = {
   },
   variants: {},
   plugins: [
-    require('@tailwindcss/ui'),
+    // require('@tailwindcss/ui'),
   ],
 }
 
 
 // module.exports = {
 //   content: [
-//     './app/templates/**/*.html',  // Path to your Flask templates
+//     './app/templates/**/*.{html, js}',  // Path to your Flask templates
 //   ],
 //   theme: {
 //     extend: {},
