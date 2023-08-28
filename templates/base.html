@@ -20,6 +20,19 @@
         {{ message }}
         {% endfor %}
     </div>
+    <!--flash messages classes-->
+    <div class="bg-blue-200 text-blue-800 p-2 text-center">
+        {% for message in get_flashed_messages() %}
+        {% if 'success' in message %}
+        <div class="bg-green-400 p-2 mb-2">{{ message }}</div>
+        {% elif 'error' in message %}
+        <div class="bg-red-400 p-2 mb-2">{{ message }}</div>
+        {% else %}
+        <div class="bg-gray-300 p-2 mb-2">{{ message }}</div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
 
     <aside
         class="flex flex-col items-center w-16 h-screen py-8 overflow-y-auto bg-white border-r rtl:border-l rtl:border-r-0 dark:bg-gray-900 dark:border-gray-700">
