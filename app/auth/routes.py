@@ -1,11 +1,13 @@
-from flask import render_template, flash, redirect, url_for, request
+from flask import Blueprint render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user
 from app import db
-from app.auth import bp
+from app.auth import auth_bp
 from app.models import User
-form app.auth.forms import RegistrationForm, LoginForm
+from app.auth.forms import RegistrationForm, LoginForm
 
-@bp.route('/register', methods=['GET','POST'])
+auth_bp = Blueprint('auth', __name__)
+
+@auth_bp.route('/register', methods=['GET','POST'])
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('main.index'))
@@ -23,7 +25,7 @@ def register():
  
  # end of function
 
-@bp.route('/login', methods=['GET', 'POST'])
+@auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('main.index'))
@@ -42,7 +44,7 @@ def login():
 
     return render_template('auth/login.html', title = "Sign In", form = form)
 
-@bp.route('/logout')
+@auth_bp.route('/logout')
 def logout():
     # remove the token from the cookie and log out the user
     # we do it by setting the expiration date to sometime in the past
