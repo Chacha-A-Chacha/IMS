@@ -22,3 +22,14 @@ class User(db.Model, UserMixin):
     
     def __repr__(self):
         return '<User {}>'.format(self.username)
+
+
+class Category(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+    items = db.relationship('Item', backref='category', lazy=True)
+
+class Item(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
