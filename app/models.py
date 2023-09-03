@@ -29,6 +29,7 @@ class Category(db.Model):
     name = db.Column(db.String(255), nullable=False)
     items = db.relationship('Item', backref='category', lazy=True)
 
+
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
