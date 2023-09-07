@@ -1,4 +1,7 @@
 #!/src/bin/env python3
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
+
 
 class Config:
     SECRET_KEY = 'your-secret-key'  # Change this to a secure secret key
