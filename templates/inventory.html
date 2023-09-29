@@ -1,5 +1,6 @@
-<!-- ... (Previous HTML content) ... -->
+{% extends "base.html" %}
 
+{% block content %}
 <div class="container">
     <h1>Inventory System</h1>
 
@@ -28,6 +29,10 @@
         </div>
     </div>
 </div>
+{% endfor %}
+{% endblock %}
+
+{% block scripts %}
 
 <script>
     const open{{ category.id }}ModalBtn = document.getElementById('{{ category.id }}OpenModalBtn');
@@ -42,6 +47,4 @@
         { { category.id } } Modal.classList.add('hidden');
     });
 </script>
-{% endfor %}
-
-<!-- ... (Remaining HTML content) ... -->
+{% endblock %}

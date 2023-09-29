@@ -33,3 +33,8 @@ inventory_app/
 |-- run.py
 |-- requirements.txt
 |-- .env
+
+
+
+$env:FLASK_APP = "app:create_app('development')"  # Set the Flask app and configuration
+flask run

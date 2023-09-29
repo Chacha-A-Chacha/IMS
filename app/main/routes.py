@@ -1,20 +1,15 @@
 #!usr/bin/env python3
-
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from ..models import db, Category, Item
 from . import main
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///inventory.db'
-app.config['SECRET_KEY'] = 'your-secret-key'
-db.init_app(app)
 
-
-@main.route('/')
+@main.route('/', methods=['GET'])
 def inventory():
     categories = Category.query.all()
     return render_template('inventory.html', categories=categories)
+    # return render_template('index.html')
 
 
 @main.route('/update_inventory', methods=['POST'])
