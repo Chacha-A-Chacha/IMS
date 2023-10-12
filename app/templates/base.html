@@ -6,15 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    {% assets 'main_css' %}
-    <link rel="stylesheet" href="{{ url_for(" static, filename=assets["main_css"].href) }} )>
-    {% endassets %}
 
-    <title>Inventory-Home</title>
+    <link href="{{ url_for('static', filename='tailwind/tailwind.css') }}" rel="stylesheet">
+    <title>{% block title %}Inventory-Home{% endblock %}</title>
+    <!-- Additional meta tags, stylesheets, or scripts can be included here -->
 </head>
 
 <body>
-    {% block content}
+    {% block flashcontent %}
     <!-- Display flashed messages -->
     <div class="bg-blue-200 text-blue-800 p-2 text-center">
         {% for message in get_flashed_messages() %}
@@ -34,12 +33,12 @@
         {% endfor %}
     </div>
 
-    {% endblock }
+    {% endblock %}
 
 <!-- ... navigation to dashboard ... -->
 
 <div class="mt-4">
-    <a href="{{ url_for('dashboard') }}" class="bg-blue-500 text-white px-4 py-2 rounded">View Dashboard</a>
+    <a href="" class="bg-blue-500 text-white px-4 py-2 rounded">View Dashboard</a>
 </div>
 
 <!-- ... (Remaining HTML content) ... -->
@@ -128,5 +127,5 @@
     <header> {% block content %}{% endblock %} </header>
     <footer></footer>
 </body>
-
+{% block scripts %}{% endblock%}
 </html>

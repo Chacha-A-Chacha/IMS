@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}Inventory Dashboard{% endblock %}
+
+{% block content %}
+<h1>Inventory Dashboard</h1>
+<div>
+    {% for category_data in dashboard_data %}
+        <h2>{{ category_data.category_name }}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in category_data.items %}
+                    <tr>
+                        <td>{{ item.item_name }}</td>
+                        <td>{{ item.quantity }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+</div>
+{% endblock %}

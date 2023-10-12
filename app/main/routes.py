@@ -1,7 +1,7 @@
 #!usr/bin/env python3
 from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_sqlalchemy import SQLAlchemy
-from ..models import db, Category, Item
+from app import db  # Import db from the main __init__.py file
+from ..models import User, Category, Item
 from . import main
 
 
@@ -9,7 +9,6 @@ from . import main
 def inventory():
     categories = Category.query.all()
     return render_template('inventory.html', categories=categories)
-    # return render_template('index.html')
 
 
 @main.route('/update_inventory', methods=['POST'])
