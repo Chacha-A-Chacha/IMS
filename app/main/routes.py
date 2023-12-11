@@ -8,7 +8,7 @@ from . import main
 @main.route('/', methods=['GET'])
 def inventory():
     categories = Category.query.all()
-    return render_template('inventory.html', categories=categories)
+    return render_template('inv.html', inventory_categories=categories)
 
 
 @main.route('/update_inventory', methods=['POST'])
