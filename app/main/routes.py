@@ -5,6 +5,11 @@ from ..models import User, Category, Item
 from . import main
 
 
+@main.route('/dashboard', methods=['GET'])
+def dashboard():
+    categories = Category.query.all()
+    return render_template('dashboard.html', inventory_categories=categories)
+
 @main.route('/', methods=['GET'])
 def inventory():
     categories = Category.query.all()
