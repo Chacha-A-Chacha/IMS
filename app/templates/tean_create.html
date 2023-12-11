@@ -1,0 +1,23 @@
+{% block flashcontent %}
+<!-- Display flashed messages -->
+{% for message in get_flashed_messages() %}
+<div class="bg-blue-200 text-blue-800 p-2 text-center">
+
+    {{ message }}
+
+</div>
+{% endfor %}
+<!--flash messages classes-->
+<div class="bg-blue-200 text-blue-800 p-2 text-center">
+    {% for message in get_flashed_messages() %}
+    {% if 'success' in message %}
+    <div class="bg-green-400 p-2 mb-2">{{ message }}</div>
+    {% elif 'error' in message %}
+    <div class="bg-red-400 p-2 mb-2">{{ message }}</div>
+    {% else %}
+    <div class="bg-gray-300 p-2 mb-2">{{ message }}</div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block head%}
+{{ super() }}
+
+{% block title %}-Dashboard{% endblock %}
+{% endblock %}
+
+{% block content %}
+<header>Categories Dashboard</header>
+<div class="flex">
+{% for category in categories %}
+    <div>
+        <h2>{{ category.name }}</h2>
+        <ul>
+            {% for item in category.items %}
+                <li>{{ item.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
