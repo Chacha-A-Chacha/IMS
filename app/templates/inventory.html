@@ -29,12 +29,9 @@
         </div>
     </div>
 </div>
-{% endfor %}
-{% endblock %}
-
-{% block scripts %}
 
 <script>
+
     const open{{ category.id }}ModalBtn = document.getElementById('{{ category.id }}OpenModalBtn');
     const {{ category.id }}CloseModalBtn = document.getElementById('{{ category.id }}CloseModalBtn');
     const {{ category.id }}Modal = document.getElementById('{{ category.id }}Modal');
@@ -47,4 +44,10 @@
         { { category.id } } Modal.classList.add('hidden');
     });
 </script>
+{% endfor %}
+{% endblock %}
+
+{% block scripts %}
+
+
 {% endblock %}
