@@ -1,28 +1,48 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
 
-{% block title %}Inventory Dashboard{% endblock %}
+{% block head%}
+{{ super() }}
+
+{% block title %}-Dashboard{% endblock %}
+{% endblock %}
 
 {% block content %}
 <h1>Inventory Dashboard</h1>
-<div>
-    {% for category_data in dashboard_data %}
-        <h2>{{ category_data.category_name }}</h2>
-        <table>
-            <thead>
+
+
+
+<div class="flex px-6 py-10 mx-auto shadow-md sm:rounded-lg">
+    {% for category in categories %}
+    <div class="container">
+        <table class="w- text-sm text-left text-gray-500 ">
+            <h2 class="text-md font-semibold text-blue-500 capitalize lg:text-xl ">{{ category.name }}</h2>
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                 <tr>
-                    <th>Item</th>
-                    <th>Quantity</th>
+                    <th scope="col" class="px-6 py-3">
+                        Item
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Qty
+                    </th>
                 </tr>
             </thead>
             <tbody>
-                {% for item in category_data.items %}
-                    <tr>
-                        <td>{{ item.item_name }}</td>
-                        <td>{{ item.quantity }}</td>
-                    </tr>
+                {% for item in category.items %}
+                <tr class="bg-white border-b  hover:bg-gray-50 "  >
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                        {{ item.name }}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{ item.quantity }}
+                    </td>
+                    
+                </tr>
                 {% endfor %}
             </tbody>
+            {% endfor %}
         </table>
-    {% endfor %}
+    </div>
+    
 </div>
+
 {% endblock %}
